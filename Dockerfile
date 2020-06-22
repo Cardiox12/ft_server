@@ -2,7 +2,7 @@ FROM debian:buster
 
 RUN apt-get update ; \
 apt-get upgrade -y ; \
-apt-get install -y nginx vim curl mariadb-server php-mbstring php-zip php-gd wget
+apt-get install -y nginx vim curl mariadb-server php-mbstring php-zip php-gd wget php-fpm
 
 RUN wget -P /tmp https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
 RUN tar -xvf /tmp/phpMyAdmin-4.9.0.1-all-languages.tar.gz --directory /tmp
