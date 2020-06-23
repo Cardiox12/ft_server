@@ -11,9 +11,14 @@ RUN mkdir -p /usr/share/phpmyadmin/tmp
 COPY srcs/config.inc.php /usr/share/phpmyadmin
 COPY srcs/config_users.sql /tmp
 
+RUN wget -P /tmp https://wordpress.org/latest.tar.gz
+RUN tar -xvf /tmp/latest.tar.gz --directory /tmp
+RUN mv /tmp/wordpress /var/www/html
+COPY /srcs/wp-config.php /var/www/html/wordpress
+
 RUN rm /etc/nginx/sites-enabled/default
-COPY srcs/default /etc/nginx/sites-available
-RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+COPY srcs/default.conf /etc/nginx/sites-available
+RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/
 COPY srcs/startup.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/startup.sh /
 RUN ln -s /usr/share/phpmyadmin /var/www/html
