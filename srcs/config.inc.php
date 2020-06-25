@@ -12,7 +12,7 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
 /* User used to manipulate with storage */
-$cfg['Servers'][$i]['controluser'] = 'pma';
+$cfg['Servers'][$i]['controluser'] = 'site-user';
 $cfg['Servers'][$i]['controlpass'] = 'root';
 
 /* Storage database and tables */
